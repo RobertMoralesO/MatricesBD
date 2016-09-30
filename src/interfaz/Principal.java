@@ -322,6 +322,7 @@ public class Principal extends javax.swing.JFrame {
                 break;
             case 6:
 
+                
                 txtResultado.setText(Helper.recorridoDos(tblMatrizInicial));
                 break;
         }
