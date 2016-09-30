@@ -27,7 +27,7 @@ public class Test {
         m[3][2]=12;
         
         
-        System.out.println(Helper.recorridoUno(m));
+        System.out.println(Helper.recorridoHaciaArriba(m, 1));
         
         
     }

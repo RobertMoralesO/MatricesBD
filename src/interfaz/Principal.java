@@ -106,7 +106,7 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 320, 160));
 
-        cmbOperaciones.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cant Números Pares", "Números Pares", "Diagonal Principal", "Letra C", "Letra H", "Recorrido 1", " " }));
+        cmbOperaciones.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cant Números Pares", "Números Pares", "Diagonal Principal", "Letra C", "Letra H", "Recorrido 1", "Recorrido 2", " " }));
         jPanel1.add(cmbOperaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 200, 130, -1));
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Acciones"));
@@ -218,7 +218,7 @@ public class Principal extends javax.swing.JFrame {
                     aux = 1;
                     try {
                         n = Double.parseDouble(Helper.recibirDatos(this, "Digite el elemento en la posición: [" + i + "][" + j + "]"));
-                        tblMatrizInicial.setValueAt((int)n, i, j);
+                        tblMatrizInicial.setValueAt((int) n, i, j);
                     } catch (NumberFormatException e) {
                         JOptionPane.showMessageDialog(this, "Digite la información correctamente", "Error", JOptionPane.ERROR_MESSAGE);
                         aux = 0;
@@ -315,11 +315,14 @@ public class Principal extends javax.swing.JFrame {
                 Helper.letraH(tblMatrizInicial, tblMatrizResultante);
 
                 break;
-                
-                case 5:
 
-                    //System.out.println(Helper.recorrido1(tblMatrizInicial));
+            case 5:
 
+                txtResultado.setText(Helper.recorridoUno(tblMatrizInicial));
+                break;
+            case 6:
+
+                txtResultado.setText(Helper.recorridoDos(tblMatrizInicial));
                 break;
         }
 
