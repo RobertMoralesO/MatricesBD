@@ -364,9 +364,11 @@ public class Helper {
             }
 
         }
-        aux = aux.substring(0, aux.length() - 2);
+        aux =aux.substring(0, aux.length() - 2);
         return aux;
     }
+    
+    
     
     public static String recorridoTres(JTable tabla){
         int m[][],in,fin,nf,nc;
