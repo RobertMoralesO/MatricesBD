@@ -158,7 +158,6 @@ public class Helper {
         }
     }
 
-  
     public static int[][] pasarDatosMatriz(JTable tabla1) {
         int nf, nc;
         nf = tabla1.getRowCount();
@@ -182,7 +181,8 @@ public class Helper {
         }
         return aux;
     }
-     public static String recorridoHaciaArriba(int m[][], int j, int in,int fin) {
+
+    public static String recorridoHaciaArriba(int m[][], int j, int in, int fin) {
         String aux = "";
         for (int i = in; i >= fin; i--) {
             aux = aux + m[i][j] + ", ";
@@ -198,83 +198,105 @@ public class Helper {
         }
         return aux;
     }
-    
-    public static String recorridoHaciaAbajo(int m[][], int j,int in, int fin) {
+
+    public static String recorridoHaciaAbajo(int m[][], int j, int in, int fin) {
         String aux = "";
         for (int i = in; i < fin; i++) {
             aux = aux + m[i][j] + ", ";
         }
         return aux;
     }
-    
-    public static String recorridoUno(JTable tabla1){
+
+    public static String recorridoUno(JTable tabla1) {
         int m[][] = pasarDatosMatriz(tabla1);
         int nc = m[0].length;
-        String aux="";
-        
+        String aux = "";
+
         for (int j = 0; j < nc; j++) {
-            if(j%2 == 0){
-             aux=aux+ recorridoHaciaArriba(m, j);
-            }else{
-              aux=aux+  recorridoHaciaAbajo(m, j);
+            if (j % 2 == 0) {
+                aux = aux + recorridoHaciaArriba(m, j);
+            } else {
+                aux = aux + recorridoHaciaAbajo(m, j);
             }
-            
+
         }
-       aux=aux.substring(0, aux.length()-2);
+        aux = aux.substring(0, aux.length() - 2);
         return aux;
     }
-    
-    public static String recorridoHaciaIzquierda(int[][] m, int i){
-        String aux ="";
+
+    public static String recorridoHaciaIzquierda(int[][] m, int i) {
+        String aux = "";
         int nc = m[0].length;
-        
-        for (int j = (nc-1); j >= 0; j--) {
-            aux=aux + m[i][j]+", ";
+
+        for (int j = (nc - 1); j >= 0; j--) {
+            aux = aux + m[i][j] + ", ";
         }
         return aux;
     }
-    public static String recorridoHaciaIzquierda(int[][] m, int i, int in, int fin){
-        String aux ="";
-        
-        
+
+    public static String recorridoHaciaIzquierda(int[][] m, int i, int in, int fin) {
+        String aux = "";
+
         for (int j = in; j >= fin; j--) {
-            aux=aux + m[i][j]+", ";
+            aux = aux + m[i][j] + ", ";
         }
         return aux;
     }
-    
-    public static String recorridoHaciaDerecha(int[][] m, int i){
-        String aux ="";
+
+    public static String recorridoHaciaDerecha(int[][] m, int i) {
+        String aux = "";
         int nc = m[0].length;
-        
-        for (int j =0; j < nc; j++) {
-            aux=aux + m[i][j]+", ";
+
+        for (int j = 0; j < nc; j++) {
+            aux = aux + m[i][j] + ", ";
         }
         return aux;
     }
-    public static String recorridoHaciaDerecha(int[][] m, int i, int in, int fin){
-        String aux ="";
-        
-        
-        for (int j =in; j < fin; j++) {
-            aux=aux + m[i][j]+", ";
+
+    public static String recorridoHaciaDerecha(int[][] m, int i, int in, int fin) {
+        String aux = "";
+
+        for (int j = in; j < fin; j++) {
+            aux = aux + m[i][j] + ", ";
         }
         return aux;
     }
-    
-    public static String recorridoDos(JTable tabla1){
-        int[][] m= pasarDatosMatriz(tabla1);
-        int nf=m.length;
-        String aux ="";
-        for (int i = 0; i <nf; i++) {
-            if(i%2==0){
-                aux=aux+ Helper.recorridoHaciaIzquierda(m, i);
-            }else{
-                aux=aux+Helper.recorridoHaciaDerecha(m, i);
+
+    public static String recorridoDiagonalPrincipalAbajo(int[][] m) {
+        String aux = "";
+        int nf = m.length;
+        int nc = m[0].length;
+
+        for (int i = 0; i < nf; i++) {
+            aux = aux + m[i][i] + ", ";
+        }
+
+        return aux;
+    }
+
+    public static String recorridoDiagonalPrincipalAbajo(int[][] m, int in, int fin) {
+        String aux = "";
+
+        for (int i = in; i <= fin; i++) {
+            aux = aux + m[i][i] + ", ";
+        }
+
+        return aux;
+    }
+
+    public static String recorridoDos(JTable tabla1) {
+        int[][] m = pasarDatosMatriz(tabla1);
+        int nf = m.length;
+        String aux = "";
+        for (int i = 0; i < nf; i++) {
+            if (i % 2 == 0) {
+                aux = aux + Helper.recorridoHaciaIzquierda(m, i);
+            } else {
+                aux = aux + Helper.recorridoHaciaDerecha(m, i);
             }
-                
+
         }
-        aux=aux.substring(0, aux.length()-2);
+        aux = aux.substring(0, aux.length() - 2);
         return aux;
     }
 
