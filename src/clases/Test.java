@@ -30,12 +30,10 @@ public class Test {
         m[3][2]=5;
         m[3][3]=7;
         
-        //m[3][0]=10;
-        //m[3][1]=11;
-        //m[3][2]=12;
+     
         
         
-        System.out.println(Helper.recorridoDiagonalPrincipalAbajo(m,1,3));
+        System.out.println(Helper.recorridoDiagonalSecundariaAbajo(m,1,2));
         
         
     }
