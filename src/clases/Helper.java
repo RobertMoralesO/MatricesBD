@@ -256,7 +256,7 @@ public class Helper {
     public static String recorridoHaciaDerecha(int[][] m, int i, int in, int fin) {
         String aux = "";
 
-        for (int j = in; j < fin; j++) {
+        for (int j = in; j <= fin; j++) {
             aux = aux + m[i][j] + ", ";
         }
         return aux;
@@ -268,9 +268,31 @@ public class Helper {
         int nc = m[0].length;
 
          for (int i = 0; i <nf; i++) {
-                 
-              aux = aux + m[i][nc-1-i] + ", ";
-             
+             aux = aux + m[i][nc-1-i] + ", ";
+         }
+
+        return aux;
+    }
+     
+      public static String recorridoDiagonalSecundariaArriba(int[][] m) {
+        String aux = "";
+        int nf = m.length;
+        int nc = m[0].length;
+
+         for (int i = nf-1; i >=0; i--) {
+             aux = aux + m[i][nc-1-i] + ", ";
+         }
+
+        return aux;
+    }
+      
+      public static String recorridoDiagonalSecundariaArriba(int[][] m,int in, int fin) {
+        String aux = "";
+        int nf = m.length;
+        int nc = m[0].length;
+
+         for (int i = in; i >=fin; i--) {
+             aux = aux + m[i][nc-1-i] + ", ";
          }
 
         return aux;
@@ -278,13 +300,9 @@ public class Helper {
      
       public static String recorridoDiagonalSecundariaAbajo(int[][] m, int in, int fin) {
         String aux = "";
-     
-        int nc = m[0].length;
-
+         int nc = m[0].length;
          for (int i = in; i <=fin; i++) {
-                 
               aux = aux + m[i][nc-1-i] + ", ";
-             
          }
 
         return aux;
@@ -347,6 +365,37 @@ public class Helper {
 
         }
         aux = aux.substring(0, aux.length() - 2);
+        return aux;
+    }
+    
+    public static String recorridoTres(JTable tabla){
+        int m[][],in,fin,nf,nc;
+        m = pasarDatosMatriz(tabla);
+        String aux = "";
+        nf = m.length;
+        nc = m[0].length;
+        in=0;
+        fin = nf/2;
+        aux = aux + Helper.recorridoDiagonalPrincipalAbajo(m, in, fin);
+        in = fin+1;
+        fin = nf - 1;
+        aux = aux + Helper.recorridoDiagonalSecundariaAbajo(m, in, fin);
+        aux = aux + Helper.recorridoHaciaDerecha(m, fin, 1, nc-1);
+        aux = aux.substring(0, aux.length() - 2);
+        return aux;
+        
+        
+    }
+    public static String mostrar(int[][] m){
+       String aux ="";
+        for (int i = 0; i < m.length; i++) {
+            for (int j = 0; j < m[0].length; j++) {
+               aux = aux + m[i][j] + " ";
+                
+            }
+            aux = aux + "\n";
+            
+        }
         return aux;
     }
 
